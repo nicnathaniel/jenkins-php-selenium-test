@@ -2,6 +2,12 @@ pipeline {
 	agent none
 	stages {
 		stage('Integration UI Test') {
+			stage ('test'){
+				steps {
+					sh 'git update-index --chmod=+x jenkins/scripts/deploy.sh'
+					sh 'git update-index --chmod=+x jenkins/scripts/kill.sh'
+				}
+			}
 			parallel {
 				stage('Deploy') {
 					agent any
