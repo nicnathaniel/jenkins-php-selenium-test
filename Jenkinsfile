@@ -1,8 +1,9 @@
 pipeline {
 	agent none
 	stages {
-		agent any
+		
 		stage('test'){
+			agent any
 			steps {
 				sh 'git update-index --chmod=+x jenkins/scripts/deploy.sh'
 				sh 'git update-index --chmod=+x jenkins/scripts/kill.sh'
